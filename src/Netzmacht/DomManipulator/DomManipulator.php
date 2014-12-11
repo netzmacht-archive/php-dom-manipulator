@@ -225,7 +225,7 @@ class DomManipulator
      *
      * @param string $buffer HTML content.
      *
-     * @return void.
+     * @return void
      */
     private function loadHtmlToDocument($buffer)
     {
