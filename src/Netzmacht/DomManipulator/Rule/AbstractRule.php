@@ -1,9 +1,9 @@
 <?php
 
-namespace Netzmacht\Contao\DomManipulator\Rule;
+namespace Netzmacht\DomManipulator\Rule;
 
-use Netzmacht\Contao\DomManipulator\QueryInterface;
-use Netzmacht\Contao\DomManipulator\RuleInterface;
+use Netzmacht\DomManipulator\QueryInterface;
+use Netzmacht\DomManipulator\RuleInterface;
 
 /**
  * Class AbstractRule provides a basic query implementation by using a Query Interface.

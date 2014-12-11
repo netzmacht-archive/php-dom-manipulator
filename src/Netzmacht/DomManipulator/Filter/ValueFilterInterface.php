@@ -9,7 +9,7 @@
  *
  */
 
-namespace Netzmacht\Contao\DomManipulator\Filter;
+namespace Netzmacht\DomManipulator\Filter;
 
 /**
  * Interface ValueFilterInterface

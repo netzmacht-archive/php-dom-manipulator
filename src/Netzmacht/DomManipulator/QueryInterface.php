@@ -9,7 +9,7 @@
  *
  */
 
-namespace Netzmacht\Contao\DomManipulator;
+namespace Netzmacht\DomManipulator;
 
 /**
  * Interface QueryInterface describes an query which can be

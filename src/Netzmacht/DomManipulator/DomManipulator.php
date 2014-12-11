@@ -9,7 +9,7 @@
  *
  */
 
-namespace Netzmacht\Contao\DomManipulator;
+namespace Netzmacht\DomManipulator;
 
 /**
  * Class DomManipulator provides an

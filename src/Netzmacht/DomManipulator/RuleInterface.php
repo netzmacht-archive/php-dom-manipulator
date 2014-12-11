@@ -1,6 +1,6 @@
 <?php
 
-namespace Netzmacht\Contao\DomManipulator;
+namespace Netzmacht\DomManipulator;
 
 /**
  * RuleInterface describes a rule which manipulates an dom element.

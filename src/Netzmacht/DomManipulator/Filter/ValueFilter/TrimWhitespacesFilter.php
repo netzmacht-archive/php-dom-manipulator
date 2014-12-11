@@ -9,9 +9,9 @@
  *
  */
 
-namespace Netzmacht\Contao\DomManipulator\Filter\ValueFilter;
+namespace Netzmacht\DomManipulator\Filter\ValueFilter;
 
-use Netzmacht\Contao\DomManipulator\Filter\ValueFilterInterface;
+use Netzmacht\DomManipulator\Filter\ValueFilterInterface;
 
 class TrimWhitespacesFilter implements ValueFilterInterface
 {

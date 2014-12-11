@@ -9,10 +9,10 @@
  *
  */
 
-namespace Netzmacht\Contao\DomManipulator\Rule;
+namespace Netzmacht\DomManipulator\Rule;
 
-use Netzmacht\Contao\DomManipulator\Filter\ValueFilterInterface;
-use Netzmacht\Contao\DomManipulator\QueryInterface;
+use Netzmacht\DomManipulator\Filter\ValueFilterInterface;
+use Netzmacht\DomManipulator\QueryInterface;
 
 class AttributeRule extends AbstractRule
 {
