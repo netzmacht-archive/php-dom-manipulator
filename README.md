@@ -2,10 +2,10 @@
 PHP Dom document manipulator
 ============================
 
-[![Build Status](http://img.shields.io/travis/netzmacht/php-dom-document/master.svg?style=flat-square)](https://travis-ci.org/netzmacht/php-dom-document)
-[![Version](http://img.shields.io/packagist/v/netzmacht/php-dom-document.svg?style=flat-square)](http://packagist.com/packages/netzmacht/php-dom-document)
-[![License](http://img.shields.io/packagist/l/netzmacht/php-dom-document.svg?style=flat-square)](http://packagist.com/packages/netzmacht/php-dom-document)
-[![Downloads](http://img.shields.io/packagist/dt/netzmacht/php-dom-document.svg?style=flat-square)](http://packagist.com/packages/netzmacht/php-dom-document)
+[![Build Status](http://img.shields.io/travis/netzmacht/php-dom-manipulator/master.svg?style=flat-square)](https://travis-ci.org/netzmacht/php-dom-manipulator)
+[![Version](http://img.shields.io/packagist/v/netzmacht/php-dom-manipulator.svg?style=flat-square)](http://packagist.com/packages/netzmacht/php-dom-manipulator)
+[![License](http://img.shields.io/packagist/l/netzmacht/php-dom-manipulator.svg?style=flat-square)](http://packagist.com/packages/netzmacht/php-dom-manipulator)
+[![Downloads](http://img.shields.io/packagist/dt/netzmacht/php-dom-manipulator.svg?style=flat-square)](http://packagist.com/packages/netzmacht/php-dom-manipulator)
 
 This library provides a rule based dom document manipulator.
 
