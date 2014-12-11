@@ -24,7 +24,7 @@ interface RuleInterface
      *
      * @param \DomElement $node
      *
-     * @return mixed
+     * @return void
      */
     public function apply(\DomElement $node);
 }
