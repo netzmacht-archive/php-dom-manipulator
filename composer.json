@@ -1,0 +1,33 @@
+{
+    "name":"netzmacht/php-dom-manipulate",
+    "description":"This library is an html dom document manipulator.",
+    "keywords":["dom", "html", "document", "manipulate"],
+    "type":"library",
+    "license":"LGPL-3.0+",
+    "authors":[
+        {
+            "name":"David Molineus",
+            "email":"mail@netzmacht.de",
+            "homepage":"http://www.netzmacht.de",
+            "role":"Developer"
+        }
+    ],
+    "require":{
+        "php":">=5.3.2"
+    },
+    "require-dev": {
+        "phpspec/phpspec": "2.1.x-dev",
+        "henrikbjorn/phpspec-code-coverage" : "~0.2",
+        "netzmacht/contao-build-tools": "1.0.x-dev"
+    },
+    "autoload": {
+        "psr-0": {
+            "Netzmacht\\DomDocument\\": "src"
+        }
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "prefer-stable": true,
+    "minimum-stability": "dev"
+}
