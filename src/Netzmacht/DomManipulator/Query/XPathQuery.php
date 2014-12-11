@@ -18,7 +18,7 @@ use Netzmacht\DomManipulator\QueryInterface;
  *
  * @package Netzmacht\Contao\DomManipulator\Query
  */
-final class XPathQuery implements  QueryInterface
+final class XPathQuery implements QueryInterface
 {
     /**
      * XPath expression.
@@ -72,6 +72,6 @@ final class XPathQuery implements  QueryInterface
     {
         $xPath = new \DOMXPath($document);
 
-        return $xPath->query($document);
+        return $xPath->query($this->getXPathExpr());
     }
 }
