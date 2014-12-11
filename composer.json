@@ -1,5 +1,5 @@
 {
-    "name":"netzmacht/php-dom-manipulate",
+    "name":"netzmacht/php-dom-manipulator",
     "description":"This library is an html dom document manipulator.",
     "keywords":["dom", "html", "document", "manipulate"],
     "type":"library",
