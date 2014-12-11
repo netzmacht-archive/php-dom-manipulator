@@ -2,6 +2,11 @@
 PHP Dom document manipulator
 ============================
 
+[![Build Status](http://img.shields.io/travis/netzmacht/php-dom-document/master.svg?style=flat-square)](https://travis-ci.org/netzmacht/php-dom-document)
+[![Version](http://img.shields.io/packagist/v/netzmacht/php-dom-document.svg?style=flat-square)](http://packagist.com/packages/netzmacht/php-dom-document)
+[![License](http://img.shields.io/packagist/l/netzmacht/php-dom-document.svg?style=flat-square)](http://packagist.com/packages/netzmacht/php-dom-document)
+[![Downloads](http://img.shields.io/packagist/dt/netzmacht/php-dom-document.svg?style=flat-square)](http://packagist.com/packages/netzmacht/php-dom-document)
+
 This library provides a rule based dom document manipulator.
 
 Install
@@ -34,5 +39,5 @@ $result = $manipulator
 Credits
 ----------------------------
 
-This library initial was extracted from the [toflar/contao-css-class-replacer](https://github.com/Toflar/contao-css-class-replacer)
+This library initially was extracted from the [toflar/contao-css-class-replacer](https://github.com/Toflar/contao-css-class-replacer)
 which is maintained by Yanick Witschi alias [@Toflar](https://github.com/Toflar).
