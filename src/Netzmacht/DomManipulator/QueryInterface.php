@@ -23,7 +23,7 @@ interface QueryInterface
      *
      * @param \DOMDocument $document Dom Document.
      *
-     * @return \DomNodeList
+     * @return \Traversable|\DOMNode[]
      */
     public function query(\DOMDocument $document);
 }
