@@ -90,6 +90,16 @@ class DomManipulator
     }
 
     /**
+     * Get the dom document.
+     *
+     * @return \DOMDocument
+     */
+    public function getDocument()
+    {
+        return $this->document;
+    }
+
+    /**
      * Add new rule.
      *
      * @param RuleInterface $rule Manipulator rule.
@@ -117,6 +127,16 @@ class DomManipulator
         }
 
         return $this;
+    }
+
+    /**
+     * Get all rules.
+     *
+     * @return array|RuleInterface[]
+     */
+    public function getRules()
+    {
+        return $this->rules;
     }
 
     /**
