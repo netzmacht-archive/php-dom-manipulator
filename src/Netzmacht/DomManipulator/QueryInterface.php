@@ -12,7 +12,7 @@
 namespace Netzmacht\DomManipulator;
 
 /**
- * Interface QueryInterface describes an query which can be
+ * Interface QueryInterface describes an query which filters the dom to retrieve a DomNodeList.
  *
  * @package Netzmacht\Contao\DomManipulator
  */
