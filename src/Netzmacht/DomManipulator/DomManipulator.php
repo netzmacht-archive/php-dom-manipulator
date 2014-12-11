@@ -156,7 +156,7 @@ class DomManipulator
             $encoding = '<?xml encoding="' . $charset . '" ?>';
             $buffer   = $encoding . $buffer;
 
-            $this->loadHtmlToDocument($buffer);
+            @$this->document->loadHTML($buffer);
 
             foreach ($this->document->childNodes as $item) {
                 if ($item->nodeType == XML_PI_NODE) {
@@ -164,7 +164,7 @@ class DomManipulator
                 }
             }
         } else {
-            $this->loadHtmlToDocument($buffer);
+            @$this->document->loadHTML($buffer);
         }
 
         return $this;
@@ -218,23 +218,5 @@ class DomManipulator
         }
 
         return $this->document->saveHTML();
-    }
-
-    /**
-     * Load html into dom and respects silent mode.
-     *
-     * @param string $buffer HTML content.
-     *
-     * @return void
-     */
-    private function loadHtmlToDocument($buffer)
-    {
-        if ($this->isSilentMode()) {
-            // @codingStandardsIgnoreStart
-            @$this->document->loadHTML($buffer);
-            // @codingStandardsIgnoreEnd
-        } else {
-            $this->document->loadHTML($buffer);
-        }
     }
 }
