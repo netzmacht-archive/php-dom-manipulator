@@ -13,6 +13,11 @@ namespace Netzmacht\DomManipulator\Filter\ValueFilter;
 
 use Netzmacht\DomManipulator\Filter\ValueFilterInterface;
 
+/**
+ * Class TrimWhitespacesFilter removes double whitespaces and line breaks from the value.
+ *
+ * @package Netzmacht\DomManipulator\Filter\ValueFilter
+ */
 class TrimWhitespacesFilter implements ValueFilterInterface
 {
     /**
@@ -20,6 +25,6 @@ class TrimWhitespacesFilter implements ValueFilterInterface
      */
     public function filter($value)
     {
-        return trim(preg_replace('/\s+/',  ' ', $value));
+        return trim(preg_replace('/\s+/', ' ', $value));
     }
 }

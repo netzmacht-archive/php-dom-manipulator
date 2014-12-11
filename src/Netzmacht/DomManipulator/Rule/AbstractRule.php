@@ -26,7 +26,7 @@ abstract class AbstractRule implements RuleInterface
      *
      * @param QueryInterface $query Query to filter affected nodes.
      */
-    function __construct(QueryInterface $query)
+    public function __construct(QueryInterface $query)
     {
         $this->query = $query;
     }
@@ -56,11 +56,7 @@ abstract class AbstractRule implements RuleInterface
     }
 
     /**
-     * Query the dom to find the elements which to
-     *
-     * @param \DOMDocument $document
-     *
-     * @return \DOMNodeList
+     * {@inheritdoc}
      */
     public function query(\DOMDocument $document)
     {

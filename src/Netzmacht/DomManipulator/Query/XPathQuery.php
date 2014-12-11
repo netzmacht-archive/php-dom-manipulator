@@ -14,7 +14,7 @@ namespace Netzmacht\DomManipulator\Query;
 use Netzmacht\DomManipulator\QueryInterface;
 
 /**
- * Class XPathQuery
+ * Class XPathQuery queries the dom with a xpath expression.
  *
  * @package Netzmacht\Contao\DomManipulator\Query
  */
@@ -32,7 +32,7 @@ final class XPathQuery implements QueryInterface
      *
      * @param string $xPathExpr XPath expression.
      */
-    function __construct($xPathExpr)
+    public function __construct($xPathExpr)
     {
         $this->xPathExpr = $xPathExpr;
     }

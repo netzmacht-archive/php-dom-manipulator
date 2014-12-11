@@ -14,6 +14,11 @@ namespace Netzmacht\DomManipulator\Rule;
 use Netzmacht\DomManipulator\Filter\ValueFilterInterface;
 use Netzmacht\DomManipulator\QueryInterface;
 
+/**
+ * Class AttributeRule can be used to filter attribute values.
+ *
+ * @package Netzmacht\DomManipulator\Rule
+ */
 class AttributeRule extends AbstractRule
 {
     /**
@@ -43,7 +48,7 @@ class AttributeRule extends AbstractRule
      * @param QueryInterface $query         The query.
      * @param string         $attributeName Name of the attribute being changed.
      */
-    function __construct(QueryInterface $query, $attributeName)
+    public function __construct(QueryInterface $query, $attributeName)
     {
         parent::__construct($query);
 
@@ -75,6 +80,8 @@ class AttributeRule extends AbstractRule
     }
 
     /**
+     * Check is attribute creation is forced.
+     *
      * @return boolean
      */
     public function isForceAttribute()
@@ -99,7 +106,7 @@ class AttributeRule extends AbstractRule
     /**
      * Add a filter which will be applied.
      *
-     * @param ValueFilterInterface $filter ValueFilterInterface
+     * @param ValueFilterInterface $filter Filter being added.
      *
      * @return $this
      */
@@ -133,11 +140,7 @@ class AttributeRule extends AbstractRule
     }
 
     /**
-     * Apply Rule filters.
-     *
-     * @param \DomElement $node
-     *
-     * @return mixed
+     * {@inheritdoc}
      */
     public function apply(\DomElement $node)
     {

@@ -12,14 +12,14 @@
 namespace Netzmacht\DomManipulator;
 
 /**
- * Class DomManipulator provides an
+ * Class DomManipulator is a rule based dom manipulator.
  *
  * @package Netzmacht\Contao\DomManipulator
  */
 class DomManipulator
 {
     /**
-     * Rules.
+     * Set of dom manipulation rules.
      *
      * @var array|RuleInterface[]
      */
@@ -55,9 +55,9 @@ class DomManipulator
     /**
      * Construct.
      *
-     * @param \DOMDocument    $document   The dom Document being manipulated.
-     * @param RuleInterface[] $rules      Rules.
-     * @param bool            $silentMode Set silent mode.
+     * @param \DOMDocument          $document   The dom Document being manipulated.
+     * @param array|RuleInterface[] $rules      Rules.
+     * @param bool                  $silentMode Set silent mode.
      *
      * @internal param string $encoding Charset encoding.
      */
@@ -70,10 +70,11 @@ class DomManipulator
     }
 
     /**
+     * Construct and create a new dom element.
      *
-     * @param array $domConfig
-     * @param array $rules
-     * @param bool  $silentMode
+     * @param array $domConfig  Set dom config. The array is directly mapped to the dom document publich attributes.
+     * @param array $rules      List of rules.
+     * @param bool  $silentMode Run in silent mode.
      *
      * @return static
      */
@@ -116,7 +117,7 @@ class DomManipulator
     /**
      * Add rules to manipulator.
      *
-     * @param RuleInterface[] $rules Rules.
+     * @param array|RuleInterface[] $rules Rules.
      *
      * @return $this
      */
@@ -132,7 +133,7 @@ class DomManipulator
     /**
      * Get all rules.
      *
-     * @return array|RuleInterface[]
+     * @return RuleInterface[]
      */
     public function getRules()
     {
@@ -155,7 +156,9 @@ class DomManipulator
             $encoding = '<?xml encoding="' . $charset . '" ?>';
             $buffer   = $encoding . $buffer;
 
+            // @codingStandardsIgnoreStart
             @$this->document->loadHTML($buffer);
+            // @codingStandardsIgnoreEnd
 
             foreach ($this->document->childNodes as $item) {
                 if ($item->nodeType == XML_PI_NODE) {
@@ -163,7 +166,9 @@ class DomManipulator
                 }
             }
         } else {
+            // @codingStandardsIgnoreStart
             @$this->document->loadHTML($buffer);
+            // @codingStandardsIgnoreEnd
         }
 
         return $this;

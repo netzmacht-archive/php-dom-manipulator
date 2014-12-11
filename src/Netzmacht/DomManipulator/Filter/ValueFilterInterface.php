@@ -12,7 +12,7 @@
 namespace Netzmacht\DomManipulator\Filter;
 
 /**
- * Interface ValueFilterInterface
+ * Interface ValueFilterInterface for a simple value filtering.
  *
  * @package Netzmacht\Contao\DomManipulator\Filter
  */

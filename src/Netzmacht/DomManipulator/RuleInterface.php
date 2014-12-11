@@ -12,8 +12,9 @@ namespace Netzmacht\DomManipulator;
 interface RuleInterface
 {
     /**
-     * Query the dom to find the elements which to
-     * @param \DOMDocument $document
+     * Query the dom to find the elements which the rule is applied to.
+     *
+     * @param \DOMDocument $document The dom document.
      *
      * @return \DOMNodeList
      */
@@ -22,7 +23,7 @@ interface RuleInterface
     /**
      * Apply Rule filters.
      *
-     * @param \DomElement $node
+     * @param \DomElement $node Current dom node.
      *
      * @return void
      */
