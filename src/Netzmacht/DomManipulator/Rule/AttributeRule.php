@@ -31,6 +31,13 @@ class AttributeRule extends AbstractRule
     private $attributeName;
 
     /**
+     * Create attribute if it does not exists.
+     *
+     * @var bool
+     */
+    private $forceAttribute = true;
+
+    /**
      * Construct.
      *
      * @param QueryInterface $query         The query.
@@ -63,6 +70,28 @@ class AttributeRule extends AbstractRule
     public function setAttributeName($attributeName)
     {
         $this->attributeName = $attributeName;
+
+        return $this;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isForceAttribute()
+    {
+        return $this->forceAttribute;
+    }
+
+    /**
+     * Create Attribute if it does not exists.
+     *
+     * @param boolean $forceAttribute Force the attribute.
+     *
+     * @return $this
+     */
+    public function setForceAttribute($forceAttribute)
+    {
+        $this->forceAttribute = (bool) $forceAttribute;
 
         return $this;
     }
@@ -119,9 +148,9 @@ class AttributeRule extends AbstractRule
         // Replace if it already exists
         if ($attribute) {
             $attribute->nodeValue = $value;
-        } else {
+        } elseif ($this->isForceAttribute()) {
             // Otherwise add
-            $node->setAttribute('class', $value);
+            $node->setAttribute($this->getAttributeName(), $value);
         }
     }
 
