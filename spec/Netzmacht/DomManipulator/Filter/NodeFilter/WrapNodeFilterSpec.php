@@ -3,7 +3,6 @@
 namespace spec\Netzmacht\DomManipulator\Filter\NodeFilter;
 
 use Netzmacht\DomManipulator\Filter\NodeFilter\WrapNodeFilter;
-use Netzmacht\DomManipulator\QueryInterface;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
