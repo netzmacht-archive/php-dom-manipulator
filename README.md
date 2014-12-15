@@ -25,7 +25,8 @@ Usage
 ```php
 <?php 
 
-$manipulator = Netzmacht\DomManipulator\DomManipulator::forNewDocument();
+$converter   = Netzmacht\DomManipulator\Converter\DomDocumentConverter();
+$manipulator = new Netzmacht\DomManipulator\DomManipulator($converter);
 
 $query = new Netzmacht\DomManipulator\Query\XPathQuery('xpath query');
 $rule  = new Netzmacht\DomManipulator\Rule\AttributeRule($query, 'class');
