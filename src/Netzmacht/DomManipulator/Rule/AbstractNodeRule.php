@@ -18,15 +18,8 @@ use Netzmacht\DomManipulator\Filter\NodeFilterInterface;
  *
  * @package Netzmacht\DomManipulator\Rule
  */
-abstract class AbstractNodeRule extends AbstractRule
+abstract class AbstractNodeRule extends AbstractFilterRule
 {
-    /**
-     * Node filters.
-     *
-     * @var NodeFilterInterface[]
-     */
-    private $filters = array();
-
     /**
      * Add a filter which will be applied.
      *
@@ -39,27 +32,5 @@ abstract class AbstractNodeRule extends AbstractRule
         $this->filters[] = $filter;
 
         return $this;
-    }
-
-    /**
-     * Remove all filters.
-     *
-     * @return $this
-     */
-    public function clearFilters()
-    {
-        $this->filters = array();
-
-        return $this;
-    }
-
-    /**
-     * Get all filters.
-     *
-     * @return NodeFilterInterface[]
-     */
-    public function getFilters()
-    {
-        return $this->filters;
     }
 }

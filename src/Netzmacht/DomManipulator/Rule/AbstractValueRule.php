@@ -18,15 +18,8 @@ use Netzmacht\DomManipulator\Filter\ValueFilterInterface;
  *
  * @package Netzmacht\DomManipulator\Rule
  */
-abstract class AbstractValueRule extends AbstractRule
+abstract class AbstractValueRule extends AbstractFilterRule
 {
-    /**
-     * Value filters.
-     *
-     * @var ValueFilterInterface[]
-     */
-    private $filters = array();
-
     /**
      * Add a filter which will be applied.
      *
@@ -39,27 +32,5 @@ abstract class AbstractValueRule extends AbstractRule
         $this->filters[] = $filter;
 
         return $this;
-    }
-
-    /**
-     * Remove all filters.
-     *
-     * @return $this
-     */
-    public function clearFilters()
-    {
-        $this->filters = array();
-
-        return $this;
-    }
-
-    /**
-     * Get all filters.
-     *
-     * @return ValueFilterInterface[]
-     */
-    public function getFilters()
-    {
-        return $this->filters;
     }
 }
