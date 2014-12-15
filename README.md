@@ -25,7 +25,7 @@ Usage
 ```php
 <?php 
 
-$converter   = Netzmacht\DomManipulator\Converter\DomDocumentConverter();
+$converter   = new Netzmacht\DomManipulator\Converter\DomDocumentConverter();
 $manipulator = new Netzmacht\DomManipulator\DomManipulator($converter);
 
 $query = new Netzmacht\DomManipulator\Query\XPathQuery('xpath query');
