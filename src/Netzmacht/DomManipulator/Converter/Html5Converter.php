@@ -14,6 +14,13 @@ namespace Netzmacht\DomManipulator\Converter;
 use Masterminds\HTML5;
 use Netzmacht\DomManipulator\ConverterInterface;
 
+/**
+ * Class Html5Converter uses the Masterminds html5 parser/serializer.
+ *
+ * It is much slower than the integrated dom converter but it handles html5 better than the dom document converter.
+ *
+ * @package Netzmacht\DomManipulator\Converter
+ */
 class Html5Converter implements ConverterInterface
 {
     /**
@@ -34,15 +41,17 @@ class Html5Converter implements ConverterInterface
     /**
      * {@inheritdoc}
      */
-    public function parseHtml($html)
+    public function parseHtml($html, $encoding = 'UTF-8')
     {
-        $this->html5Parser->loadHTML($html);
+        $inputStream = new HTML5\Parser\StringInputStream($html, $encoding);
+
+        return $this->html5Parser->parse($inputStream);
     }
 
     /**
      * {@inheritdoc}
      */
-    public function toHtml(\DOMDocument $document)
+    public function toHtml(\DOMDocument $document, $encoding = 'UTF-8')
     {
         $this->html5Parser->saveHTML($document);
     }
