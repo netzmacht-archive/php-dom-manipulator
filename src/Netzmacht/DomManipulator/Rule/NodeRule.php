@@ -21,6 +21,8 @@ use Netzmacht\DomManipulator\Filter\NodeFilterInterface;
 class NodeRule extends AbstractRule
 {
     /**
+     * Node filters.
+     *
      * @var NodeFilterInterface[]
      */
     private $filters = array();

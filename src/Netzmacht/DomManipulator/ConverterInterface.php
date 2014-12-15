@@ -32,7 +32,7 @@ interface ConverterInterface
      * Convert a dom document into html.
      *
      * @param \DOMDocument $document Dom document.
-     * @param string       $encoding output encoding.
+     * @param string       $encoding Output encoding.
      *
      * @return string
      */

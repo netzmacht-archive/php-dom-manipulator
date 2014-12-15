@@ -31,9 +31,9 @@ class MoveIntoNodeFilter implements NodeFilterInterface
     /**
      * Construct.
      *
-     * @param QueryInterface $query
+     * @param QueryInterface $query Selector query.
      */
-    function __construct(QueryInterface $query)
+    public function __construct(QueryInterface $query)
     {
         $this->query = $query;
     }

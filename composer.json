@@ -19,7 +19,8 @@
         "phpspec/phpspec": "2.1.x-dev",
         "henrikbjorn/phpspec-code-coverage" : "~0.2",
         "netzmacht/contao-build-tools": "1.0.x-dev",
-        "bossa/phpspec2-expect": "~1.0"
+        "bossa/phpspec2-expect": "~1.0",
+        "masterminds/html5": "~2.0"
     },
     "suggest": {
         "masterminds/html5": "HTML 5 parser and serializer. Required if Html5Converter is used."

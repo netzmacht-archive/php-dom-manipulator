@@ -24,6 +24,8 @@ use Netzmacht\DomManipulator\ConverterInterface;
 class Html5Converter implements ConverterInterface
 {
     /**
+     * Html5 parser.
+     *
      * @var HTML5
      */
     private $html5Parser;
@@ -31,9 +33,9 @@ class Html5Converter implements ConverterInterface
     /**
      * Construct.
      *
-     * @param HTML5 $html5Parser Html5 parser
+     * @param HTML5 $html5Parser Html5 parser.
      */
-    function __construct(HTML5 $html5Parser)
+    public function __construct(HTML5 $html5Parser)
     {
         $this->html5Parser = $html5Parser;
     }

@@ -11,9 +11,13 @@
 
 namespace Netzmacht\DomManipulator\Filter\NodeFilter;
 
-
 use Netzmacht\DomManipulator\Filter\NodeFilterInterface;
 
+/**
+ * Class WrapNodeFilter wraps the target element with an element.
+ *
+ * @package Netzmacht\DomManipulator\Filter\NodeFilter
+ */
 class WrapNodeFilter implements NodeFilterInterface
 {
     /**
@@ -31,10 +35,12 @@ class WrapNodeFilter implements NodeFilterInterface
     private $attributes = array();
 
     /**
+     * Construct.
+     *
      * @param string $tag        Wrapper element tag name.
      * @param array  $attributes Wrapper element attributes.
      */
-    function __construct($tag, array $attributes = array())
+    public function __construct($tag, array $attributes = array())
     {
         $this->tag        = $tag;
         $this->attributes = $attributes;

@@ -14,12 +14,17 @@ namespace Netzmacht\DomManipulator\Converter;
 use Netzmacht\DomManipulator\ConverterInterface;
 
 /**
- * Class DomDocumentParser uses the
+ * Class DomDocumentParser uses the internal DOM html loadHTML/saveHTML converting.
  *
  * @package Netzmacht\DomManipulator\Parser
  */
 class DomDocumentConverter implements ConverterInterface
 {
+    /**
+     * Dom document configuration.
+     *
+     * @var array
+     */
     private $config = array(
         'version'             => '1.1',
         'strictErrorChecking' => false,
@@ -30,7 +35,7 @@ class DomDocumentConverter implements ConverterInterface
      *
      * @param array $config Additional dom document config.
      */
-    function __construct(array $config = array())
+    public function __construct(array $config = array())
     {
         $this->config = array_merge($this->config, $config);
     }

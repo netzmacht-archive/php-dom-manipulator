@@ -2,6 +2,7 @@
 
 namespace spec\Netzmacht\DomManipulator;
 
+use Netzmacht\DomManipulator\ConverterInterface;
 use Netzmacht\DomManipulator\DomManipulator;
 use Netzmacht\DomManipulator\QueryInterface;
 use Netzmacht\DomManipulator\RuleInterface;
@@ -15,9 +16,9 @@ use Prophecy\Argument;
  */
 class DomManipulatorSpec extends ObjectBehavior
 {
-    function let(\DOMDocument $document)
+    function let(ConverterInterface $converter)
     {
-        $this->beConstructedWith($document);
+        $this->beConstructedWith($converter);
     }
 
     function it_is_initializable()
@@ -25,15 +26,11 @@ class DomManipulatorSpec extends ObjectBehavior
         $this->shouldHaveType('Netzmacht\DomManipulator\DomManipulator');
     }
 
-    function it_constructs_for_new_document()
+    function it_gets_the_document(\DOMDocument $document, ConverterInterface $converter)
     {
-        $this->beConstructedThrough('forNewDocument', array());
+        $converter->parseHtml(Argument::type('string'), Argument::cetera())->shouldBeCalled()->willReturn($document);
 
-        $this->getDocument()->shouldReturnAnInstanceOf('DomDocument');
-    }
-
-    function it_gets_the_document(\DOMDocument $document)
-    {
+        $this->loadHtml('<html></html>');
         $this->getDocument()->shouldReturn($document);
     }
 
@@ -49,11 +46,8 @@ class DomManipulatorSpec extends ObjectBehavior
         $this->getRules()->shouldReturn(array($rule));
     }
 
-    function it_loads_html_into_dom()
+    function it_loads_html_into_dom(ConverterInterface $converter)
     {
-        $document = new \DOMDocument();
-        $this->beConstructedWith($document);
-
         $this->loadHtml('<html></html>')->shouldReturn($this);
 
         // TODO: Really test it
@@ -67,10 +61,11 @@ class DomManipulatorSpec extends ObjectBehavior
         $this->isSilentMode()->shouldReturn(true);
     }
 
-    function it_manipulates_the_dom(RuleInterface $rule)
+    function it_manipulates_the_dom(RuleInterface $rule, ConverterInterface $converter)
     {
         $document = new \DOMDocument();
-        $this->beConstructedWith($document);
+        $converter->parseHtml(Argument::type('string'), Argument::cetera())->willReturn($document);
+        $converter->toHtml($document)->willReturn('<html></html>');
 
         $element = $document->createElement('div');
 
@@ -82,10 +77,11 @@ class DomManipulatorSpec extends ObjectBehavior
         $this->manipulate()->shouldBeString();
     }
 
-    function it_ignores_exceptions_in_silent_mode(RuleInterface $rule)
+    function it_ignores_exceptions_in_silent_mode(RuleInterface $rule, ConverterInterface $converter)
     {
         $document = new \DOMDocument();
-        $this->beConstructedWith($document);
+        $converter->parseHtml(Argument::type('string'), Argument::cetera())->willReturn($document);
+        $converter->toHtml($document)->willReturn('<html></html>');
 
         $this->setSilentMode(true);
 
@@ -96,10 +92,11 @@ class DomManipulatorSpec extends ObjectBehavior
         $this->manipulate()->shouldBeString();
     }
 
-    function it_throws_exceptions_if_silent_mode_is_disabled(RuleInterface $rule)
+    function it_throws_exceptions_if_silent_mode_is_disabled(RuleInterface $rule, ConverterInterface $converter)
     {
         $document = new \DOMDocument();
-        $this->beConstructedWith($document);
+        $converter->parseHtml(Argument::type('string'), Argument::cetera())->willReturn($document);
+        $converter->toHtml($document)->willReturn('<html></html>');
 
         $this->setSilentMode(false);
 
