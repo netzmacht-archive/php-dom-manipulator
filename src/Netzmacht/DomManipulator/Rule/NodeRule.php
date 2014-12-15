@@ -11,58 +11,13 @@
 
 namespace Netzmacht\DomManipulator\Rule;
 
-use Netzmacht\DomManipulator\Filter\NodeFilterInterface;
-
 /**
  * Class NodeRule applies filters directly to a node.
  *
  * @package Netzmacht\DomManipulator\Rule
  */
-class NodeRule extends AbstractRule
+class NodeRule extends AbstractNodeRule
 {
-    /**
-     * Node filters.
-     *
-     * @var NodeFilterInterface[]
-     */
-    private $filters = array();
-
-    /**
-     * Add a filter which will be applied.
-     *
-     * @param NodeFilterInterface $filter Filter being added.
-     *
-     * @return $this
-     */
-    public function addFilter(NodeFilterInterface $filter)
-    {
-        $this->filters[] = $filter;
-
-        return $this;
-    }
-
-    /**
-     * Remove all filters.
-     *
-     * @return $this
-     */
-    public function clearFilters()
-    {
-        $this->filters = array();
-
-        return $this;
-    }
-
-    /**
-     * Get all filters.
-     *
-     * @return NodeFilterInterface[]
-     */
-    public function getFilters()
-    {
-        return $this->filters;
-    }
-
     /**
      * Apply Rule filters.
      *
@@ -72,7 +27,7 @@ class NodeRule extends AbstractRule
      */
     public function apply(\DomElement $node)
     {
-        foreach ($this->filters as $filter) {
+        foreach ($this->getFilters() as $filter) {
             $filter->filter($node);
         }
     }
