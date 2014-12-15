@@ -19,6 +19,13 @@ namespace Netzmacht\DomManipulator;
 class DomManipulator
 {
     /**
+     * Html to DOM converter.
+     *
+     * @var ConverterInterface
+     */
+    private $converter;
+
+    /**
      * Set of dom manipulation rules.
      *
      * @var array|RuleInterface[]
@@ -40,54 +47,20 @@ class DomManipulator
     private $silentMode;
 
     /**
-     * Default Dom Config.
-     *
-     * This property is protected so you could easily override it in a subclass.
-     *
-     * @var array
-     */
-    protected static $defaultDomConfig = array(
-        'version'             => '1.1',
-        'encoding'            => 'utf-8',
-        'strictErrorChecking' => false,
-    );
-
-    /**
      * Construct.
      *
-     * @param \DOMDocument          $document   The dom Document being manipulated.
+     * @param ConverterInterface    $converter  Html to dom converter.
      * @param array|RuleInterface[] $rules      Rules.
      * @param bool                  $silentMode Set silent mode.
      *
      * @internal param string $encoding Charset encoding.
      */
-    public function __construct(\DOMDocument $document, array $rules = array(), $silentMode = false)
+    public function __construct(ConverterInterface $converter, array $rules = array(), $silentMode = false)
     {
         $this->addRules($rules);
         $this->setSilentMode($silentMode);
 
-        $this->document = $document;
-    }
-
-    /**
-     * Construct and create a new dom element.
-     *
-     * @param array $domConfig  Set dom config. The array is directly mapped to the dom document publich attributes.
-     * @param array $rules      List of rules.
-     * @param bool  $silentMode Run in silent mode.
-     *
-     * @return static
-     */
-    public static function forNewDocument(array $domConfig = array(), array $rules = array(), $silentMode = false)
-    {
-        $domConfig = array_merge(static::$defaultDomConfig, $domConfig);
-        $document  = new \DOMDocument();
-
-        foreach ($domConfig as $name => $value) {
-            $document->$name = $value;
-        }
-
-        return new static($document, $rules, $silentMode);
+        $this->converter = $converter;
     }
 
     /**
@@ -150,22 +123,7 @@ class DomManipulator
      */
     public function loadHtml($buffer, $charset = null)
     {
-        if ($charset !== false) {
-            // Tell the parser which charset to use
-            $charset  = $charset ?: $this->document->encoding;
-            $encoding = '<?xml encoding="' . $charset . '" ?>';
-            $buffer   = $encoding . $buffer;
-
-            @$this->document->loadHTML($buffer);
-
-            foreach ($this->document->childNodes as $item) {
-                if ($item->nodeType == XML_PI_NODE) {
-                    $this->document->removeChild($item);
-                }
-            }
-        } else {
-            @$this->document->loadHTML($buffer);
-        }
+        $this->document = $this->converter->parseHtml($buffer, $charset);
 
         return $this;
     }
@@ -217,6 +175,6 @@ class DomManipulator
             }
         }
 
-        return $this->document->saveHTML();
+        return $this->converter->toHtml($this->document);
     }
 }
