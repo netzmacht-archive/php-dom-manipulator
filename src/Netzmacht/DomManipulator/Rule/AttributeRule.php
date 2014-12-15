@@ -11,7 +11,6 @@
 
 namespace Netzmacht\DomManipulator\Rule;
 
-use Netzmacht\DomManipulator\Filter\ValueFilterInterface;
 use Netzmacht\DomManipulator\QueryInterface;
 
 /**
@@ -19,15 +18,8 @@ use Netzmacht\DomManipulator\QueryInterface;
  *
  * @package Netzmacht\DomManipulator\Rule
  */
-class AttributeRule extends AbstractRule
+class AttributeRule extends AbstractValueRule
 {
-    /**
-     * Value filters.
-     *
-     * @var ValueFilterInterface[]
-     */
-    private $filters = array();
-
     /**
      * Name of the attribute being changed.
      *
@@ -101,42 +93,6 @@ class AttributeRule extends AbstractRule
         $this->forceAttribute = (bool) $forceAttribute;
 
         return $this;
-    }
-
-    /**
-     * Add a filter which will be applied.
-     *
-     * @param ValueFilterInterface $filter Filter being added.
-     *
-     * @return $this
-     */
-    public function addFilter(ValueFilterInterface $filter)
-    {
-        $this->filters[] = $filter;
-
-        return $this;
-    }
-
-    /**
-     * Remove all filters.
-     *
-     * @return $this
-     */
-    public function clearFilters()
-    {
-        $this->filters = array();
-
-        return $this;
-    }
-
-    /**
-     * Get all filters.
-     *
-     * @return ValueFilterInterface[]
-     */
-    public function getFilters()
-    {
-        return $this->filters;
     }
 
     /**
