@@ -121,7 +121,7 @@ class DomManipulator
      *
      * @return $this
      */
-    public function loadHtml($buffer, $charset = null)
+    public function loadHtml($buffer, $charset = 'UTF-8')
     {
         $this->document = $this->converter->parseHtml($buffer, $charset);
 
