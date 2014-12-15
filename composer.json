@@ -18,7 +18,8 @@
     "require-dev": {
         "phpspec/phpspec": "2.1.x-dev",
         "henrikbjorn/phpspec-code-coverage" : "~0.2",
-        "netzmacht/contao-build-tools": "1.0.x-dev"
+        "netzmacht/contao-build-tools": "1.0.x-dev",
+        "bossa/phpspec2-expect": "~1.0"
     },
     "autoload": {
         "psr-0": {
