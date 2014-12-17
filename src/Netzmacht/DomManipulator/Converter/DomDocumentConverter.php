@@ -82,6 +82,29 @@ class DomDocumentConverter implements ConverterInterface
      */
     public function toHtml(\DOMDocument $document, $encoding = 'UTF-8')
     {
-        return $document->saveHTML();
+        $html = $document->saveHTML();
+
+        // Thanks to Tristan Lins @see http://goo.gl/3yfwMm
+        $html = str_replace(
+            array('%5B', '%5D', '%7B', '%7D', '%20'),
+            array('[', ']', '{',   '}',   ' '),
+            $html
+        );
+        $html = preg_replace_callback(
+            '~\{%.*%\}~U',
+            function ($matches) {
+                return html_entity_decode($matches[0], ENT_QUOTES, 'UTF-8');
+            },
+            $html
+        );
+        $html = preg_replace_callback(
+            '~##.*##~U',
+            function ($matches) {
+                return html_entity_decode($matches[0], ENT_QUOTES, 'UTF-8');
+            },
+            $html
+        );
+
+        return $html;
     }
 }
