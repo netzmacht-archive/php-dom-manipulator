@@ -55,6 +55,6 @@ class Html5Converter implements ConverterInterface
      */
     public function toHtml(\DOMDocument $document, $encoding = 'UTF-8')
     {
-        $this->html5Parser->saveHTML($document);
+        return $this->html5Parser->saveHTML($document);
     }
 }
