@@ -184,6 +184,8 @@ class DomManipulator
                 }
             }
         }
+
+        return $this;
     }
 
     /**
