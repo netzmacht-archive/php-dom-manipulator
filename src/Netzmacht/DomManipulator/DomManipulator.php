@@ -64,6 +64,16 @@ class DomManipulator
     }
 
     /**
+     * Get converter.
+     *
+     * @return ConverterInterface
+     */
+    public function getConverter()
+    {
+        return $this->converter;
+    }
+
+    /**
      * Get the dom document.
      *
      * @return \DOMDocument
@@ -157,7 +167,7 @@ class DomManipulator
      *
      * @throws \Exception If a broken rule is executed and silent mode is not enabled.
      *
-     * @return string
+     * @return $this
      */
     public function manipulate()
     {
@@ -174,7 +184,15 @@ class DomManipulator
                 }
             }
         }
+    }
 
+    /**
+     * Get the html.
+     *
+     * @return string
+     */
+    public function getHtml()
+    {
         return $this->converter->toHtml($this->document);
     }
 }
