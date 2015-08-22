@@ -25,7 +25,7 @@ class NodeRule extends AbstractNodeRule
      *
      * @return void
      */
-    public function apply(\DomElement $node)
+    public function apply($node)
     {
         foreach ($this->getFilters() as $filter) {
             $filter->filter($node);

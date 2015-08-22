@@ -31,9 +31,9 @@ interface RuleInterface
     /**
      * Apply Rule filters.
      *
-     * @param \DomElement $node Current dom node.
+     * @param \DomElement|\DOMCharacterData $node Current dom node.
      *
      * @return void
      */
-    public function apply(\DomElement $node);
+    public function apply($node);
 }

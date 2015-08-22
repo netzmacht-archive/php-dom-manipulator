@@ -98,7 +98,7 @@ class AttributeRule extends AbstractValueRule
     /**
      * {@inheritdoc}
      */
-    public function apply(\DomElement $node)
+    public function apply($node)
     {
         $attributes = $node->attributes;
         $attribute  = $attributes->getNamedItem($this->getAttributeName());

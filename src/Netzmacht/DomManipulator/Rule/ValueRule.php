@@ -21,7 +21,7 @@ class ValueRule extends AbstractValueRule
     /**
      * {@inheritdoc}
      */
-    public function apply(\DomElement $node)
+    public function apply($node)
     {
         $value = $node->nodeValue;
 
