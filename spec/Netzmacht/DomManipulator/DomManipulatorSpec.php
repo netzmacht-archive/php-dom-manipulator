@@ -74,7 +74,7 @@ class DomManipulatorSpec extends ObjectBehavior
 
         $this->addRule($rule);
         $this->loadHtml('<html></html>')->shouldReturn($this);
-        $this->manipulate()->shouldBeString();
+        $this->manipulate()->shouldReturn($this);
     }
 
     function it_ignores_exceptions_in_silent_mode(RuleInterface $rule, ConverterInterface $converter)
